@@ -3,16 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Mirebela - Calçados de conforto e elegância para mulheres">
-    <title>Mirebela - Conforto e Elegância</title>
+    <meta name="description" content="Miribela - Calçados femininos de conforto e elegância. Sandálias premium com design moderno e qualidade excepcional.">
+    <meta name="keywords" content="calçados femininos, sandálias, conforto, elegância, moda, Miribela">
+    <meta name="author" content="Miribela">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://miribela.com/">
+    <meta property="og:title" content="Miribela - Conforto e Elegância">
+    <meta property="og:description" content="Calçados femininos de conforto e elegância. Sandálias premium com design moderno.">
+    <meta property="og:image" content="imagens/Logo Miribela.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://miribela.com/">
+    <meta property="twitter:title" content="Miribela - Conforto e Elegância">
+    <meta property="twitter:description" content="Calçados femininos de conforto e elegância. Sandálias premium com design moderno.">
+    <meta property="twitter:image" content="imagens/Logo Miribela.png">
+
+    <title>Miribela - Calçados Femininos de Conforto e Elegância</title>
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="style.css" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap" as="style">
+    
     <link rel="stylesheet" href="style.css">
-
-    <!-- Fontes Premium -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-
-    <!-- Ícones -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="imagens/Logo Miribela.png">
+    <link rel="apple-touch-icon" href="imagens/Logo Miribela.png">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#d4af37">
+    <meta name="msapplication-TileColor" content="#d4af37">
 </head>
 <body>
     <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
@@ -27,6 +56,7 @@
                 <ul>
                     <li><a href="#home">Home</a></li>
                     <li><a href="#produtos">Coleção</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
                     <li><a href="#contato">Contato</a></li>
                 </ul>
             </nav>
@@ -52,31 +82,165 @@
         <!-- Produtos -->
         <section id="produtos" class="produtos" aria-label="Nossos produtos">
             <div class="container">
-                <h2>Nossos Destaques</h2>
-                <div class="produtos-grid">
+                <div class="section-header">
+                    <h2>Nossos Destaques</h2>
+                    <p>Descubra nossa coleção exclusiva de calçados femininos</p>
+                </div>
+                
+                <!-- Filtros -->
+                <div class="filtros-container">
+                    <div class="filtros">
+                        <button class="filtro-btn active" data-filtro="todos">Todos</button>
+                        <button class="filtro-btn" data-filtro="novidade">Novidades</button>
+                        <button class="filtro-btn" data-filtro="premium">Premium</button>
+                    </div>
+                    <div class="busca-container">
+                        <input type="text" id="busca-produtos" placeholder="Buscar produtos..." aria-label="Buscar produtos">
+                        <i class="fas fa-search"></i>
+                    </div>
+                </div>
+
+                <div class="produtos-grid" id="produtos-grid">
                     <!-- Produto 1 -->
-                    <article class="produto-card">
+                    <article class="produto-card" data-categoria="novidade" data-nome="sandália comfort">
                         <span class="selo-novo">Novidade</span>
-                        <img src="imagens/Sandália 1 Miribela.png" alt="Sandália Comfort" width="280" height="220">
-                        <h3>Sandália Comfort</h3>
-                        <p class="preco">R$ 199,90</p>
-                        <button class="adicionar-carrinho" aria-label="Adicionar Sandália Comfort ao carrinho">Comprar</button>
+                        <div class="produto-imagem">
+                            <img src="imagens/Sandália 1 Miribela.png" alt="Sandália Comfort - Conforto e estilo para o dia a dia" width="280" height="220" loading="lazy">
+                            <div class="produto-overlay">
+                                <button class="btn-ver-detalhes" aria-label="Ver detalhes da Sandália Comfort">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="produto-info">
+                            <h3>Sandália Comfort</h3>
+                            <p class="produto-descricao">Perfeita para o dia a dia, combina conforto e elegância</p>
+                            <div class="produto-preco">
+                                <span class="preco-original">R$ 249,90</span>
+                                <span class="preco">R$ 199,90</span>
+                                <span class="desconto">-20%</span>
+                            </div>
+                            <div class="produto-tamanhos">
+                                <span class="tamanho-label">Tamanhos:</span>
+                                <div class="tamanhos">
+                                    <span class="tamanho">35</span>
+                                    <span class="tamanho">36</span>
+                                    <span class="tamanho">37</span>
+                                    <span class="tamanho">38</span>
+                                    <span class="tamanho">39</span>
+                                </div>
+                            </div>
+                            <button class="adicionar-carrinho" aria-label="Adicionar Sandália Comfort ao carrinho">
+                                <i class="fas fa-shopping-cart"></i>
+                                Comprar
+                            </button>
+                        </div>
                     </article>
+
                     <!-- Produto 2 -->
-                    <article class="produto-card">
-                        <img src="imagens/Sandalia 2 Miribela.png" alt="Sandália Elegance" width="280" height="220">
-                        <h3>Sandália Elegance</h3>
-                        <p class="preco">R$ 219,90</p>
-                        <button class="adicionar-carrinho" aria-label="Adicionar Sandália Elegance ao carrinho">Comprar</button>
+                    <article class="produto-card" data-categoria="elegance" data-nome="sandália elegance">
+                        <div class="produto-imagem">
+                            <img src="imagens/Sandalia 2 Miribela.png" alt="Sandália Elegance - Sofisticação para ocasiões especiais" width="280" height="220" loading="lazy">
+                            <div class="produto-overlay">
+                                <button class="btn-ver-detalhes" aria-label="Ver detalhes da Sandália Elegance">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="produto-info">
+                            <h3>Sandália Elegance</h3>
+                            <p class="produto-descricao">Sofisticação e elegância para ocasiões especiais</p>
+                            <div class="produto-preco">
+                                <span class="preco">R$ 219,90</span>
+                            </div>
+                            <div class="produto-tamanhos">
+                                <span class="tamanho-label">Tamanhos:</span>
+                                <div class="tamanhos">
+                                    <span class="tamanho">35</span>
+                                    <span class="tamanho">36</span>
+                                    <span class="tamanho">37</span>
+                                    <span class="tamanho">38</span>
+                                    <span class="tamanho">39</span>
+                                </div>
+                            </div>
+                            <button class="adicionar-carrinho" aria-label="Adicionar Sandália Elegance ao carrinho">
+                                <i class="fas fa-shopping-cart"></i>
+                                Comprar
+                            </button>
+                        </div>
                     </article>
+
                     <!-- Produto 3 -->
-                    <article class="produto-card">
+                    <article class="produto-card" data-categoria="premium" data-nome="sandália premium">
                         <span class="selo-novo">Novidade</span>
-                        <img src="imagens/Sandalia 3 miribela.png" alt="Sandália Premium" width="280" height="220">
-                        <h3>Sandália Premium</h3>
-                        <p class="preco">R$ 249,90</p>
-                        <button class="adicionar-carrinho" aria-label="Adicionar Sandália Premium ao carrinho">Comprar</button>
+                        <span class="selo-premium">Premium</span>
+                        <div class="produto-imagem">
+                            <img src="imagens/Sandalia 3 miribela.png" alt="Sandália Premium - Luxo e conforto em cada detalhe" width="280" height="220" loading="lazy">
+                            <div class="produto-overlay">
+                                <button class="btn-ver-detalhes" aria-label="Ver detalhes da Sandália Premium">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="produto-info">
+                            <h3>Sandália Premium</h3>
+                            <p class="produto-descricao">Luxo e conforto em cada detalhe, para mulheres exigentes</p>
+                            <div class="produto-preco">
+                                <span class="preco">R$ 249,90</span>
+                            </div>
+                            <div class="produto-tamanhos">
+                                <span class="tamanho-label">Tamanhos:</span>
+                                <div class="tamanhos">
+                                    <span class="tamanho">35</span>
+                                    <span class="tamanho">36</span>
+                                    <span class="tamanho">37</span>
+                                    <span class="tamanho">38</span>
+                                    <span class="tamanho">39</span>
+                                </div>
+                            </div>
+                            <button class="adicionar-carrinho" aria-label="Adicionar Sandália Premium ao carrinho">
+                                <i class="fas fa-shopping-cart"></i>
+                                Comprar
+                            </button>
+                        </div>
                     </article>
+                </div>
+
+                <!-- Botão carregar mais -->
+                <div class="carregar-mais-container">
+                    <button class="btn btn-outline" id="carregar-mais">Carregar Mais Produtos</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sobre -->
+        <section id="sobre" class="sobre" aria-label="Sobre a Miribela">
+            <div class="container">
+                <div class="sobre-content">
+                    <div class="sobre-texto">
+                        <h2>Sobre a Miribela</h2>
+                        <p>Há mais de uma década, a Miribela se dedica a criar calçados femininos que unem conforto, elegância e qualidade excepcional. Nossa missão é fazer com que cada mulher se sinta confiante e bela em cada passo.</p>
+                        <div class="sobre-destaques">
+                            <div class="destaque">
+                                <i class="fas fa-heart"></i>
+                                <h3>Qualidade Premium</h3>
+                                <p>Materiais selecionados e acabamento impecável</p>
+                            </div>
+                            <div class="destaque">
+                                <i class="fas fa-shipping-fast"></i>
+                                <h3>Entrega Rápida</h3>
+                                <p>Receba seus calçados em até 48h</p>
+                            </div>
+                            <div class="destaque">
+                                <i class="fas fa-undo"></i>
+                                <h3>Garantia Total</h3>
+                                <p>30 dias para troca ou devolução</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sobre-imagem">
+                        <img src="imagens/Logo Miribela.png" alt="Miribela - Calçados Femininos" loading="lazy">
+                    </div>
                 </div>
             </div>
         </section>
@@ -84,8 +248,67 @@
         <!-- Contato -->
         <section id="contato" class="contato" aria-label="Informações de contato">
             <div class="container">
-                <h2>Fale Conosco</h2>
-                <p><strong>Email:</strong> <a href="mailto:mirebela.contato@gmail.com">mirebela.contato@gmail.com</a></p>
+                <div class="section-header">
+                    <h2>Fale Conosco</h2>
+                    <p>Estamos aqui para ajudar você a encontrar o calçado perfeito</p>
+                </div>
+                
+                <div class="contato-content">
+                    <div class="contato-info">
+                        <div class="contato-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h3>Email</h3>
+                                <p><a href="mailto:mirebela.contato@gmail.com">mirebela.contato@gmail.com</a></p>
+                            </div>
+                        </div>
+                        
+                        <div class="contato-item">
+                            <i class="fab fa-whatsapp"></i>
+                            <div>
+                                <h3>WhatsApp</h3>
+                                <p><a href="https://wa.me/5571992104877" target="_blank" rel="noopener noreferrer">(71) 99210-4877</a></p>
+                            </div>
+                        </div>
+                        
+                        <div class="contato-item">
+                            <i class="fab fa-instagram"></i>
+                            <div>
+                                <h3>Instagram</h3>
+                                <p><a href="https://www.instagram.com/ton_rcg/" target="_blank" rel="noopener noreferrer">@ton_rcg</a></p>
+                            </div>
+                        </div>
+                        
+                        <div class="contato-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h3>Horário de Atendimento</h3>
+                                <p>Segunda a Sexta: 9h às 18h<br>Sábado: 9h às 14h</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <form class="contato-form" id="contato-form">
+                        <h3>Envie sua Mensagem</h3>
+                        <div class="form-group">
+                            <label for="nome">Nome *</label>
+                            <input type="text" id="nome" name="nome" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="telefone">Telefone</label>
+                            <input type="tel" id="telefone" name="telefone">
+                        </div>
+                        <div class="form-group">
+                            <label for="mensagem">Mensagem *</label>
+                            <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Enviar Mensagem</button>
+                    </form>
+                </div>
             </div>
         </section>
 
@@ -114,14 +337,62 @@
     </footer>
 
     <!-- Carrinho Modal -->
-    <div id="carrinho-modal" class="modal" role="dialog" aria-labelledby="modal-title" aria-modal="true">
-        <div class="modal-content">
+    <div id="carrinho-modal" class="modal" role="dialog" aria-labelledby="carrinho-modal-title" aria-modal="true">
+        <div class="modal-content carrinho-modal-content">
             <button class="close-modal" aria-label="Fechar carrinho">&times;</button>
-            <h2 id="modal-title">Seu Carrinho</h2>
-            <div id="itens-carrinho"></div>
-            <button id="finalizar-pedido" class="btn">Finalizar Compra</button>
+            <h2 id="carrinho-modal-title">Seu Carrinho</h2>
+            <div id="itens-carrinho" class="itens-carrinho-container"></div>
+            <div class="carrinho-footer">
+                <div class="carrinho-total">
+                    <span>Total: <strong id="total-carrinho">R$ 0,00</strong></span>
+                </div>
+                <div class="carrinho-botoes">
+                    <button id="limpar-carrinho" class="btn btn-outline">Limpar Carrinho</button>
+                    <button id="finalizar-pedido" class="btn">Finalizar Compra</button>
+                </div>
+            </div>
         </div>
     </div>
+
+    <!-- Modal Detalhes do Produto -->
+    <div id="produto-modal" class="modal" role="dialog" aria-labelledby="produto-modal-title" aria-modal="true">
+        <div class="modal-content produto-modal-content">
+            <button class="close-modal" aria-label="Fechar detalhes">&times;</button>
+            <div class="produto-modal-body">
+                <div class="produto-modal-imagem">
+                    <img id="produto-modal-img" src="" alt="" loading="lazy">
+                </div>
+                <div class="produto-modal-info">
+                    <h2 id="produto-modal-title">Nome do Produto</h2>
+                    <p id="produto-modal-descricao">Descrição do produto</p>
+                    <div class="produto-modal-preco">
+                        <span id="produto-modal-preco">R$ 0,00</span>
+                    </div>
+                    <div class="produto-modal-tamanhos">
+                        <h3>Selecione o Tamanho:</h3>
+                        <div class="tamanhos-selecao" id="tamanhos-selecao">
+                            <!-- Tamanhos serão inseridos via JavaScript -->
+                        </div>
+                    </div>
+                    <div class="produto-modal-acoes">
+                        <button id="adicionar-carrinho-modal" class="btn">
+                            <i class="fas fa-shopping-cart"></i>
+                            Adicionar ao Carrinho
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div id="loading-spinner" class="loading-spinner" style="display: none;">
+        <div class="spinner"></div>
+        <p>Carregando...</p>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toast-container" class="toast-container"></div>
 
     <script src="script.js"></script>
 </body>
